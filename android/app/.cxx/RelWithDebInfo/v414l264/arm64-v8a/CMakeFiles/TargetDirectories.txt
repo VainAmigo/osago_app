@@ -1,0 +1,2 @@
+D:/Documents/flutter/osago_bloc_app/android/app/.cxx/RelWithDebInfo/v414l264/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/Documents/flutter/osago_bloc_app/android/app/.cxx/RelWithDebInfo/v414l264/arm64-v8a/CMakeFiles/rebuild_cache.dir

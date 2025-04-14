@@ -1,0 +1,133 @@
+{
+  "authTextButtonDoNotHaveAccount": "I don't have an account",
+  "authTextButtonAlreadyHaveAccount": "You already have an account",
+
+  "authRegistrationErrorMessageNotMatch": "Password does not match!",
+  "authRegistrationErrorMessageNotCompFields": "Please fill in all fields",
+  "authRegistrationTopTitle": "Let's get started!",
+  "authRegistrationTopText": "Enter your phone number so that we can send you a confirmation code to hell",
+  "authRegistrationInputEmail": "Enter your email",
+  "authRegistrationInputPass": "Enter the password",
+  "authRegistrationInputPassConfirm": "Confirm the password",
+  "authRegistrationInputEnterInn": "Enter the INN",
+
+  "authLoginErrorMessageNotCompFields": "All fields must be filled in",
+  "authLoginTopTitle": "Welcome back",
+  "authLoginTopText": "Enter the phone number associated with your account",
+  "authLoginInputEnterEmail": "Enter mail",
+  "authLoginInputPass": "Enter the password",
+
+
+  "navigationBarPolicy": "My policy",
+  "navigationBarCars": "My cars",
+  "navigationBarService": "Services",
+  "navigationBarSettings": "Settings",
+
+
+  "buttonContinue": "Continue",
+  "buttonConfirm": "Confirm",
+  "buttonPay": "To pay",
+  "buttonApplyPolicy": "Apply Policy",
+  "buttonExit": "Exit",
+  "buttonRegistration": "Registration",
+  "buttonLogin": "Log In",
+
+
+  "settingsAppBarTitle": "Settings",
+  "settingsPersonalData": "Personal Data",
+  "settingsChangePass": "Change password",
+  "settingsChangePhoneNumber": "Change Phone Number",
+  "settingsTheme": "Dark Theme",
+  "settingsLanguage": "Language",
+
+  "settingsLanguageAppBarTitle": "Language",
+  "settingsPersonalDataAppBarTitle": "Personal Data",
+  "settingsPersonalDataInputPin": "Full name",
+  "settingsPersonalDataInputName": "INN",
+  "settingsPersonalDataInfoNotFound": "Data not found",
+
+
+  "homeScreenTitle": "My policy's",
+  "homeScreenPolisCardDateStart": "Start:",
+  "homeScreenPolisCardDateEnd": "End:",
+  "homeScreenPolisCardStatusActive": "Active",
+  "homeScreenPolisCardStatusDisable": "Disable",
+  "homeScreenApplyPolicy": "Apply Policy",
+  "homeScreenEmptyText": "Your policies should be here",
+
+  "createOsagoModalSheetTitle": "Choose which car to take out insurance on",
+  "createOsagoModalSheetMyCar": "On my cars",
+  "createOsagoModalSheetAnotherCar": "On another car",
+
+
+  "myCarsAppBarTitle": "Select auto",
+  "myCarsCardYearText": "Year of release",
+  "myCarsCarNotFound": "You don't have any registered cars",
+
+  "searchPersonByInnTopTitle": "Enter the INN",
+  "searchPersonByInnTopText": "Enter the INN to find the owner of the other car",
+  "searchPersonByInnInputLabel": "Personal information (INN)",
+  "searchPersonByInnNotFound": "Data not found",
+  "searchPersonByInnNotFoundText": "INN number not Found",
+  "searchPersonByInnPersonCardName": "Full name of the owner",
+
+  "carPlateTopTitle": "Car plate",
+  "carPlateTopText": "With it, most of the application is filled out automatically.",
+  "carPlateAppBarTitle": "Choose Car",
+  "carPlatePlateNotFound": "The car was not found",
+  "carPlateCardYear": "Year of release",
+
+  "carPlateModalSheetTitle": "Car information",
+  "carPlateModalSheetPlate": "Car plate",
+  "carPlateModalSheetBrand": "Brand",
+  "carPlateModalSheetModel": "Model",
+  "carPlateModalSheetYear": "Year of release",
+
+
+  "osagoTypeTopTitle": "Approved drivers",
+  "osagoTypeTopText": "Select an option that is suitable for vehicle use",
+  "osagoTypeCardTitle1": "Unlimited",
+  "osagoTypeCardText1": "An unlimited number of users have access to management",
+  "osagoTypeCardTitle2": "For myself",
+  "osagoTypeCardText2": "The vehicle is used only by the owner",
+
+
+  "personInfoTopTitle": "My details",
+  "personInfoTopText": "Confirm your details before starting",
+  "personInfoTilePin": "PIN",
+  "personInfoTileName": "FULL NAME",
+  "personInfoTileDateOfBirth": "Date of birth",
+  "personInfoTileTypeOfDoc": "Series and ID number",
+  "personInfoTileDateOfDoc": "Category issue date",
+  "personInfoNotData": "There is no data to display",
+
+
+  "periodTopTitle": "Insurance period",
+  "periodTopText": "Select the insurance period",
+  "periodCostBlockText": "Total due:",
+  "period15Days": "15 days",
+  "period1Month": "1 month",
+  "period3Month": "3 months",
+  "period6Month": "6 months",
+  "period9Month": "9 months",
+  "period12Month": "12 month",
+
+
+  "confirmDataTopTitle": "Data Verification",
+  "confirmDataListTitle1": "Auto Data",
+  "confirmDataListTitle2": "Total",
+  "confirmDataTilePlate": "Car plate",
+  "confirmDataTileBrand": "Brand",
+  "confirmDataTileModel": "Model",
+  "confirmDataTileYear": "Year of manufacture",
+  "confirmDataTileOsago": "Name",
+  "confirmDataTileOsagoName": "Osago",
+  "confirmDataTileOsagoType": "Insurance Type",
+  "insuranceTypeMySelf": "For my self",
+  "insuranceTypeUnlimited": "Unlimited",
+  "confirmDataTileOsagoPeriod": "Due date",
+  "confirmDataTileOsagoPeriodMonth": "months",
+  "confirmDataTileOsagoPlate": "Car plate",
+  "confirmDataTileOsagoCost": "Insurance amount",
+  "confirmDataConsentToProcessing": "Consent to the processing of personal data"
+}

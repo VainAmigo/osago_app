@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "743525951455",
+    "project_id": "osago-bloc",
+    "storage_bucket": "osago-bloc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743525951455:android:99cdbdd745bfc8f4fe866a",
+        "android_client_info": {
+          "package_name": "com.example.osago_bloc_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCR8Kqh-U5KnuQfipfFArWOH179pOUBbvI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

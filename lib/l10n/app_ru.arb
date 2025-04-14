@@ -1,0 +1,137 @@
+{
+  "authTextButtonDoNotHaveAccount": "У меня нет аккаунта",
+  "authTextButtonAlreadyHaveAccount": "У уже есть аккаунт",
+
+  "authRegistrationErrorMessageNotMatch": "Пароль не совпадает!",
+  "authRegistrationErrorMessageNotCompFields": "Пожалуйста, заполните все поля",
+  "authRegistrationTopTitle": "Давайте начнем!",
+  "authRegistrationTopText": "Укажите номер телефона, чтобы мы могли вам отправить вад код подтверждения",
+  "authRegistrationInputEmail": "Введите почту",
+  "authRegistrationInputPass": "Введите пароль",
+  "authRegistrationInputPassConfirm": "Подвердите пароль",
+  "authRegistrationInputEnterInn": "Введите ИНН",
+
+  "authLoginErrorMessageNotCompFields": "Все поля должны быть заполнены",
+  "authLoginTopTitle": "С возвращением",
+  "authLoginTopText": "Введите номер телефона, связанный с вашим аккайнтом",
+  "authLoginInputEnterEmail": "Введите почту",
+  "authLoginInputPass": "Введите пароль",
+
+
+
+
+  "navigationBarPolicy": "Мои полисы",
+  "navigationBarCars": "Мои машины",
+  "navigationBarService": "Услуги",
+  "navigationBarSettings": "Настройки",
+
+
+  "buttonContinue": "Продолжить",
+  "buttonConfirm": "Потвердить",
+  "buttonPay": "Оплатить",
+  "buttonApplyPolicy": "Оформить полис",
+  "buttonExit": "Выйти",
+  "buttonRegistration": "Зарегестрироватся",
+  "buttonLogin": "Войти",
+
+
+  "settingsAppBarTitle": "Настройки",
+  "settingsPersonalData": "Персональные данные",
+  "settingsChangePass": "Изменить пароль",
+  "settingsChangePhoneNum": "Изменить номер телефона",
+  "settingsTheme": "Темная тема",
+  "settingsLanguage": "Язык",
+
+  "settingsLanguageAppBarTitle": "Язык",
+  "settingsPersonalDataAppBarTitle": "Персональные данные",
+  "settingsPersonalDataInputPin": "ФИО",
+  "settingsPersonalDataInputName": "ИНН",
+  "settingsPersonalDataInfoNotFound": "Данные не найдены",
+
+  "homeScreenTitle": "Мои полисы",
+  "homeScreenPolisCardDateStart": "Начало:",
+  "homeScreenPolisCardDateEnd": "Конец:",
+  "homeScreenPolisCardStatusActive": "Активный",
+  "homeScreenPolisCardStatusDisable": "Неоктивный",
+  "homeScreenApplyPolicy": "Оформить полис",
+  "homeScreenEmptyText": "Тут должны быть ваши полисы",
+
+
+  "createOsagoModalSheetTitle": "Выберите на какую машину оформить страховку",
+  "createOsagoModalSheetMyCar": "На мои авто",
+  "createOsagoModalSheetAnotherCar": "На другое авто",
+
+
+
+  "myCarsAppBarTitle": "Выберите авто",
+  "myCarsCardYearText": "Год выпуска",
+  "myCarsCarNotFound": "У вас нету зарегистрированных машин",
+
+
+
+  "searchPersonByInnTopTitle": "Введите ИНН",
+  "searchPersonByInnTopText": "Введите ИНН чтобы найти владельца другого авто",
+  "searchPersonByInnInputLabel": "Персональные данные (ИНН)",
+  "searchPersonByInnNotFound": "Данные не найдены",
+  "searchPersonByInnNotFoundText": "Номер ИНН не Найден",
+  "searchPersonByInnPersonCardName": "ФИО собственника",
+
+  "carPlateTopTitle": "Гос Номер",
+  "carPlateTopText": "С ним большая часть заявки заполнится автоматически",
+  "carPlateAppBarTitle": "Выберите авто",
+  "carPlatePlateNotFound": "Машина не найдена",
+  "carPlateCardYear": "Год выпуска",
+
+  "carPlateModalSheetTitle": "Данные об авто",
+  "carPlateModalSheetPlate": "Гос номер",
+  "carPlateModalSheetBrand": "Марка",
+  "carPlateModalSheetModel": "Модель",
+  "carPlateModalSheetYear": "Год выпуска",
+
+
+  "osagoTypeTopTitle": "Допущенные водители",
+  "osagoTypeTopText": "Выберите вариант, который подходит для использования транспортного средства",
+  "osagoTypeCardTitle1": "Неограничено",
+  "osagoTypeCardText1": "Доступ к управлению имеют неограниченное количество",
+  "osagoTypeCardTitle2": "Для себя",
+  "osagoTypeCardText2": "Транспортное средство используется только владельцем",
+
+
+  "personInfoTopTitle": "Мои данные",
+  "personInfoTopText": "Потвердите ваши данные, перед началом",
+  "personInfoTilePin": "ПИН",
+  "personInfoTileName": "ФИО",
+  "personInfoTileDateOfBirth": "Дата рождения",
+  "personInfoTileTypeOfDoc": "Серия и номер ВУ",
+  "personInfoTileDateOfDoc": "Дата выдачи категории",
+  "personInfoNotData": "Нет данных для отображения",
+
+  "periodTopTitle": "Срок страхования",
+  "periodTopText": "Выберите период страхования",
+  "periodCostBlockText": "Итого к оплате:",
+  "period15Days": "15 дней",
+  "period1Month": "1 месяц",
+  "period3Month": "3 месяца",
+  "period6Month": "6 месяцев",
+  "period9Month": "9 месяцев",
+  "period12Month": "12 месяц",
+
+
+  "confirmDataTopTitle": "Проверка данных",
+  "confirmDataListTitle1": "Данные авто",
+  "confirmDataListTitle2": "Итого",
+  "confirmDataTilePlate": "Гос.Номер",
+  "confirmDataTileBrand": "Марка",
+  "confirmDataTileModel": "Модель",
+  "confirmDataTileYear": "Год выпуска",
+  "confirmDataTileOsago": "Наименование",
+  "confirmDataTileOsagoName": "Осаго",
+  "confirmDataTileOsagoType": "Тип Страховки",
+  "insuranceTypeMySelf": "Для себя",
+  "insuranceTypeUnlimited": "Неограничено",
+  "confirmDataTileOsagoPeriod": "Срок",
+  "confirmDataTileOsagoPeriodMonth": "месяцев",
+  "confirmDataTileOsagoPlate": "Гос.Номер",
+  "confirmDataTileOsagoCost": "Сумма страхования",
+  "confirmDataConsentToProcessing": "Согласие на обработку персональных данных"
+}

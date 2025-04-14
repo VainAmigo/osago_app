@@ -1,0 +1,1 @@
+D:\Documents\flutter\osago_bloc_app\build\app\intermediates\cxx\RelWithDebInfo\v414l264\obj\arm64-v8a
