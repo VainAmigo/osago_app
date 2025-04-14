@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:osago_bloc_app/common/localization/language_constants.dart';
@@ -42,41 +43,20 @@ class _MyCarsScreenState extends State<MyCarsScreen> {
   void fetchMyCars() {
     carCubit.fetchMyCars(currentUser!.inn);
   }
-  //
-  // void showCarDetailModalSheet(BuildContext context, Car car, inn) async {
-  //   await osagoCubit.checkOsagoByGovPlate(car.govPlate);
-  //   final osagoState = osagoCubit.state;
-  //
-  //   if (osagoState is OsagoCheckResult) {
-  //     if (osagoState.hasActiveOsago) {
-  //       ScaffoldMessenger.of(context).showSnackBar(
-  //         const SnackBar(
-  //           content: Text('У этого автомобиля уже есть активный полис'),
-  //           backgroundColor: Colors.red,
-  //         ),
-  //       );
-  //     } else {
-  //       showModalBottomSheet(
-  //         isScrollControlled: true,
-  //         context: context,
-  //         builder: (context) => CarDetailModalSheet(
-  //           car: car,
-  //           inn: inn,
-  //         ),
-  //       );
-  //     }
-  //   }
-  // }
 
+  void showCarDetailModalSheet(
+      BuildContext context, Car car, String inn) async {
+    final exist = await FirebaseFirestore.instance
+        .collection('osago')
+        .where('carPlate', isEqualTo: car.govPlate.toUpperCase().trim())
+        .where('status', isEqualTo: true)
+        .get();
 
-  void showCarDetailModalSheet(BuildContext context, Car car, String inn) async {
-    final hasOsago = await osagoCubit.checkOsagoByGovPlate(car.govPlate);
-
-    if (hasOsago) {
+    if (exist.docs.isNotEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('У этого автомобиля уже есть активный полис'),
-          backgroundColor: Colors.red,
+        SnackBar(
+          content: Text(translation(context).carPlateAlreadyHasPolis),
+          backgroundColor: Theme.of(context).colorScheme.primary,
         ),
       );
     } else {

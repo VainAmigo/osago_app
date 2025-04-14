@@ -20,7 +20,7 @@ class _PeriodSelectorState extends State<PeriodSelector> {
     translation(context).period3Month,
     translation(context).period6Month,
     translation(context).period9Month,
-    translation(context).period15Days
+    translation(context).period12Month,
   ];
 
   @override

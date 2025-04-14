@@ -41,7 +41,7 @@ class CarDetailModalSheet extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  translation(context).carPlateModalSheetYear,
+                  translation(context).carPlateModalSheetPlate,
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
@@ -132,17 +132,19 @@ class CarDetailModalSheet extends StatelessWidget {
           ),
           Spacer(),
           MyButton(
-            text: translation(context).buttonContinue,
-            onPress: () {
-              Navigator.pop(context);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => OsagoTypesPage(car: car, inn: inn,),
-                ),
-              );
-            }
-          ),
+              text: translation(context).buttonContinue,
+              onPress: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => OsagoTypesPage(
+                      car: car,
+                      inn: inn,
+                    ),
+                  ),
+                );
+              }),
         ],
       ),
     );

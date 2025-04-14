@@ -81,6 +81,7 @@
   "carPlateAppBarTitle": "Выберите авто",
   "carPlatePlateNotFound": "Машина не найдена",
   "carPlateCardYear": "Год выпуска",
+  "carPlateAlreadyHasPolis": "У этого автомобиля уже есть активный полис",
 
   "carPlateModalSheetTitle": "Данные об авто",
   "carPlateModalSheetPlate": "Гос номер",

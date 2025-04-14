@@ -18,11 +18,12 @@ class FirebaseOsagoRepo implements OsagoRepo {
   }
 
 
+  @override
   Future<bool> fetchOsagoByGovPlate(String govPlate) async {
     try {
       final osagoByGovPlateSnapshot = await osagoCollection
-          .where('govPlate', isEqualTo: govPlate)
-          .where('status', isEqualTo: true) // Проверка статуса
+          .where('carPlate', isEqualTo: govPlate)
+          .where('status', isEqualTo: false)
           .get();
 
       return osagoByGovPlateSnapshot.docs.isNotEmpty;

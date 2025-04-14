@@ -23,28 +23,27 @@ class OsagoCubit extends Cubit<OsagoStates> {
     }
   }
 
-  //
-  // Future<void> checkOsagoByGovPlate(String govPlate) async {
+  // Future<bool> checkOsagoByGovPlate(String govPlate) async {
   //   try {
   //     emit(OsagoLoading());
   //     final hasActiveOsago = await osagoRepo.fetchOsagoByGovPlate(govPlate);
   //     emit(OsagoCheckResult(hasActiveOsago: hasActiveOsago));
+  //     return hasActiveOsago;
   //   } catch (e) {
   //     emit(OsagoError('Error checking OSAGO by govPlate: $e'));
+  //     return true;
   //   }
   // }
 
-  Future<bool> checkOsagoByGovPlate(String govPlate) async {
+  Future<bool> hasActiveOsagoByPlate(String govPlate) async {
     try {
-      emit(OsagoLoading());
       final hasActiveOsago = await osagoRepo.fetchOsagoByGovPlate(govPlate);
-      emit(OsagoCheckResult(hasActiveOsago: hasActiveOsago));
       return hasActiveOsago;
     } catch (e) {
-      emit(OsagoError('Error checking OSAGO by govPlate: $e'));
-      return true;
+      throw Exception('Error checking OSAGO by govPlate: $e');
     }
   }
+
 
 
   Future<void> createOsago(Osago osago) async {

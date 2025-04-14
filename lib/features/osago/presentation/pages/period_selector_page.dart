@@ -80,7 +80,7 @@ class _TestCarPageState extends State<PeriodSelectorPage> {
 
     costOfOsago = 1680 * engineVolumeCov * periodCov * cardCov;
 
-    costOfOsago = costOfOsago!.round() as double?;
+    costOfOsago = costOfOsago!.roundToDouble();
 
     setState(() {});
   }

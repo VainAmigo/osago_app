@@ -76,6 +76,7 @@
   "carPlateAppBarTitle": "Choose Car",
   "carPlatePlateNotFound": "The car was not found",
   "carPlateCardYear": "Year of release",
+  "carPlateAlreadyHasPolis": "This car already has an active policy.",
 
   "carPlateModalSheetTitle": "Car information",
   "carPlateModalSheetPlate": "Car plate",
