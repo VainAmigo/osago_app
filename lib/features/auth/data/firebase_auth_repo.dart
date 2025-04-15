@@ -42,6 +42,7 @@ class FirebaseAuthRepo implements AuthRepo {
     }
   }
 
+
   @override
   Future<AppUser?> registerWithEmailPassword(
     String inn,
@@ -105,4 +106,25 @@ class FirebaseAuthRepo implements AuthRepo {
       email: firebaseUser.email!,
     );
   }
+
+
+
+  // change password
+  @override
+  Future<void> reauthenticateAndChangePassword(
+      String currentPassword, String newPassword) async {
+    final user = firebaseAuth.currentUser;
+    if (user == null || user.email == null) {
+      throw Exception("User not logged in or email is null");
+    }
+
+    final credential = EmailAuthProvider.credential(
+      email: user.email!,
+      password: currentPassword,
+    );
+
+    await user.reauthenticateWithCredential(credential);
+    await user.updatePassword(newPassword);
+  }
+
 }

@@ -29,6 +29,7 @@
   "buttonExit": "Чыгуу",
   "buttonRegistration": "Катталуу",
   "buttonLogin": "Кирүү",
+  "buttonChangePassword": "Сырсөздү өзгөртүү",
 
   "settingsAppBarTitle": "Жөндөөлөр",
   "settingsPersonalData": "Жеке маалыматтар",
@@ -42,6 +43,13 @@
   "settingsPersonalDataInputPin": "ФИО",
   "settingsPersonalDataInputName": "ИНН",
   "settingsPersonalDataInfoNotFound": "Маалымат табылган жок",
+
+  "settingsChangePassAppBarTitle": "Сырсөздү өзгөртүү",
+  "settingsChangePassCurrentPass": "Азыркы сырсөз",
+  "settingsChangePassNewPass": "Жаңы сырсөз",
+  "settingsChangePassSnackBarText": "Cырсөз ийгиликтүү өзгөртүлдү",
+
+
 
   "homeScreenTitle": "Менин полистерим",
   "homeScreenPolisCardDateStart": "Башталышы:",

@@ -31,6 +31,7 @@
   "buttonExit": "Exit",
   "buttonRegistration": "Registration",
   "buttonLogin": "Log In",
+  "buttonChangePassword": "Change passwrod",
 
 
   "settingsAppBarTitle": "Settings",
@@ -45,6 +46,11 @@
   "settingsPersonalDataInputPin": "Full name",
   "settingsPersonalDataInputName": "INN",
   "settingsPersonalDataInfoNotFound": "Data not found",
+
+  "settingsChangePassAppBarTitle": "Change password",
+  "settingsChangePassCurrentPass": "Current password",
+  "settingsChangePassNewPass": "New passwrod",
+  "settingsChangePassSnackBarText": "Password changed successfully",
 
 
   "homeScreenTitle": "My policy's",

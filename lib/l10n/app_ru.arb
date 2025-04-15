@@ -33,6 +33,7 @@
   "buttonExit": "Выйти",
   "buttonRegistration": "Зарегестрироватся",
   "buttonLogin": "Войти",
+  "buttonChangePassword": "Изменить пароль",
 
 
   "settingsAppBarTitle": "Настройки",
@@ -47,6 +48,13 @@
   "settingsPersonalDataInputPin": "ФИО",
   "settingsPersonalDataInputName": "ИНН",
   "settingsPersonalDataInfoNotFound": "Данные не найдены",
+
+  "settingsChangePassAppBarTitle": "Изменить пароль",
+  "settingsChangePassCurrentPass": "Нынешный пароль",
+  "settingsChangePassNewPass": "Новый пароль",
+  "settingsChangePassSnackBarText": "Пароль успешно изменен",
+
+
 
   "homeScreenTitle": "Мои полисы",
   "homeScreenPolisCardDateStart": "Начало:",

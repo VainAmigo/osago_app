@@ -65,4 +65,17 @@ class AuthCubit extends Cubit<AuthState> {
     authRepo.logout();
     emit(Unauthenticated());
   }
+
+
+  // change password
+  void reauthenticateAndChangePassword(String currentPassword, String newPassword) async {
+    emit(AuthLoading());
+    try {
+      await authRepo.reauthenticateAndChangePassword(currentPassword, newPassword);
+      emit(AuthPasswordChanged());
+    } catch (e) {
+      emit(AuthError(e.toString()));
+    }
+  }
+
 }

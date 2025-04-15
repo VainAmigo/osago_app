@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:osago_bloc_app/common/localization/language_constants.dart';
 import 'package:osago_bloc_app/common/theme/theme_cubit.dart';
+import 'package:osago_bloc_app/features/auth/presentation/pages/pass/change_pass_page.dart';
 import 'package:osago_bloc_app/features/home/components/settings_button.dart';
 import 'package:osago_bloc_app/features/home/settings/local_selection_page.dart';
 import 'package:osago_bloc_app/features/home/settings/personal_info.dart';
@@ -58,12 +59,26 @@ class SettingsPage extends StatelessWidget {
                       );
                     },
                   ),
-                  Divider(height: 0, thickness: 2, color: Theme.of(context).colorScheme.onSecondary,),
-                  SettingsButton(icon: Icons.lock, text: translation(context).settingsChangePass),
-                  Divider(height: 0, thickness: 2, color: Theme.of(context).colorScheme.onSecondary,),
+                  Divider(
+                    height: 0,
+                    thickness: 2,
+                    color: Theme.of(context).colorScheme.onSecondary,
+                  ),
                   SettingsButton(
-                      icon: Icons.phone, text: translation(context).settingsChangePhoneNumber),
-                  Divider(height: 0, thickness: 2, color: Theme.of(context).colorScheme.onSecondary,),
+                    icon: Icons.lock,
+                    text: translation(context).settingsChangePass,
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ChangePasswordPage(),
+                      ),
+                    ),
+                  ),
+                  Divider(
+                    height: 0,
+                    thickness: 2,
+                    color: Theme.of(context).colorScheme.onSecondary,
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Row(
@@ -93,7 +108,11 @@ class SettingsPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Divider(height: 0, thickness: 2, color: Theme.of(context).colorScheme.onSecondary,),
+                  Divider(
+                    height: 0,
+                    thickness: 2,
+                    color: Theme.of(context).colorScheme.onSecondary,
+                  ),
                   SettingsButton(
                     icon: Icons.language,
                     text: translation(context).settingsLanguage,
