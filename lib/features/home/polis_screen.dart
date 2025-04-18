@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:osago_bloc_app/features/home/components/my_botom_modal_sheet.dart';
+import 'package:osago_bloc_app/features/home/osago_details_page.dart';
 import 'package:osago_bloc_app/features/osago/presentation/cubits/osago_cubit.dart';
 import 'package:osago_bloc_app/features/osago/presentation/cubits/osago_states.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:osago_bloc_app/pdf_generator_page.dart';
+import 'package:osago_bloc_app/save_and_open_pdf.dart';
 
 import '../../common/localization/language_constants.dart';
 import '../auth/domain/entities/app_user.dart';
@@ -52,16 +54,29 @@ class _PolisScreenState extends State<PolisScreen> {
     return DateFormat("dd.MM.yyyy").format(dateTime);
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () async {
+                final simplePdfFile = await SimplePdfApi.generateSimpleTextPdf(
+                    'My text text', 'Second text');
+                SaveAndOpenDocument.openPdf(simplePdfFile);
+              },
+              icon: Icon(Icons.picture_as_pdf))
+        ],
         title: Text(
           translation(context).homeScreenTitle,
           style: TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: 22,
-            color: Theme.of(context).colorScheme.tertiary,
+            color: Theme
+                .of(context)
+                .colorScheme
+                .tertiary,
           ),
         ),
       ),
@@ -70,10 +85,11 @@ class _PolisScreenState extends State<PolisScreen> {
           _createOsagoButtonPressed();
         },
         foregroundColor: Colors.white,
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        label: Text(
-            translation(context).homeScreenApplyPolicy
-        ),
+        backgroundColor: Theme
+            .of(context)
+            .colorScheme
+            .primary,
+        label: Text(translation(context).homeScreenApplyPolicy),
         icon: const Icon(Icons.add),
       ),
       body: BlocBuilder<OsagoCubit, OsagoStates>(builder: (context, state) {
@@ -97,7 +113,10 @@ class _PolisScreenState extends State<PolisScreen> {
                     Text(
                       translation(context).homeScreenEmptyText,
                       style: TextStyle(
-                        color: Theme.of(context).colorScheme.secondary,
+                        color: Theme
+                            .of(context)
+                            .colorScheme
+                            .secondary,
                         fontSize: 16,
                         fontWeight: FontWeight.w400,
                       ),
@@ -116,82 +135,108 @@ class _PolisScreenState extends State<PolisScreen> {
                 // get user osago
                 final osago = allOsago[index];
 
-                return Container(
-                  margin: EdgeInsets.only(bottom: 8),
-                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.inversePrimary,
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: Column(
-                    children: [
-                      //   cart top
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          //   auto number
-                          Row(
-                            children: [
-                              Container(
-                                height: 40,
-                                width: 40,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                  color: Theme.of(context).colorScheme.surface,
-                                  border: Border.all(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .secondary,
-                                      width: 1.0),
+                return InkWell(
+                  onTap: () {
+                    print(osago.status);
+                    Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => OsagoDetailsPage(osago: osago)));
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(bottom: 8),
+                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                    decoration: BoxDecoration(
+                      color: Theme
+                          .of(context)
+                          .colorScheme
+                          .inversePrimary,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Column(
+                      children: [
+                        //   cart top
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            //   auto number
+                            Row(
+                              children: [
+                                Container(
+                                  height: 40,
+                                  width: 40,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    color: Theme
+                                        .of(context)
+                                        .colorScheme
+                                        .surface,
+                                    border: Border.all(
+                                        color: Theme
+                                            .of(context)
+                                            .colorScheme
+                                            .secondary,
+                                        width: 1.0),
+                                  ),
+                                  child: Icon(
+                                    Icons.car_crash_outlined,
+                                    color: Theme
+                                        .of(context)
+                                        .colorScheme
+                                        .primary,
+                                    size: 24,
+                                  ),
                                 ),
-                                child: Icon(
-                                  Icons.car_crash_outlined,
-                                  color: Theme.of(context).colorScheme.primary,
-                                  size: 24,
+                                const SizedBox(width: 8),
+                                Text(
+                                  osago.carPlate,
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+                                    color: Theme
+                                        .of(context)
+                                        .colorScheme
+                                        .tertiary,
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(width: 8),
-                              Text(
-                                osago.carPlate,
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w600,
-                                  color: Theme.of(context).colorScheme.tertiary,
-                                ),
-                              ),
-                            ],
-                          ),
+                              ],
+                            ),
 
-                          //   card status
+                            //   card status
+                            StatusMark(
+                              isActive: osago.status,
+                            ),
+                          ],
+                        ),
 
-                          StatusMark(
-                            isActive: osago.status,
-                          ),
-                        ],
-                      ),
+                        Divider(
+                          height: 20,
+                          color: Theme
+                              .of(context)
+                              .colorScheme
+                              .onSecondary,
+                          thickness: 1,
+                          indent: 10,
+                          endIndent: 10,
+                        ),
 
-                      Divider(
-                        height: 20,
-                        color: Theme.of(context).colorScheme.onSecondary,
-                        thickness: 1,
-                        indent: 10,
-                        endIndent: 10,
-                      ),
+                        Column(
+                          children: <Widget>[
+                            DateBlock(
+                                text: translation(context)
+                                    .homeScreenPolisCardDateStart,
+                                dateText:
+                                _dateTimeParser(osago.startDate.toString())),
+                            const SizedBox(height: 5),
+                            DateBlock(
+                                text: translation(context)
+                                    .homeScreenPolisCardDateEnd,
+                                dateText:
+                                _dateTimeParser(osago.endDate.toString()))
+                          ],
+                        ),
 
-                      Column(
-                        children: <Widget>[
-                          DateBlock(
-                              text: translation(context).homeScreenPolisCardDateStart,
-                              dateText: _dateTimeParser(osago.startDate.toString())),
-                          const SizedBox(height: 5),
-                          DateBlock(
-                              text: translation(context).homeScreenPolisCardDateEnd,
-                              dateText: _dateTimeParser(osago.endDate.toString()))
-                        ],
-                      ),
-
-                      //   cart bottom
-                    ],
+                        //   cart bottom
+                      ],
+                    ),
                   ),
                 );
               },

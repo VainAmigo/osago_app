@@ -7,7 +7,9 @@ import 'package:osago_bloc_app/features/osago/presentation/pages/confirm_info_pa
 
 import '../../../../common/components/top_text_block.dart';
 import '../../../cars/domain/entities/car.dart';
-import '../../../../common/localization/language_constants.dart';
+
+
+
 
 class PeriodSelectorPage extends StatefulWidget {
   final String osagoType;
