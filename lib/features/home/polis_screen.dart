@@ -5,8 +5,7 @@ import 'package:osago_bloc_app/features/home/components/my_botom_modal_sheet.dar
 import 'package:osago_bloc_app/features/home/osago_details_page.dart';
 import 'package:osago_bloc_app/features/osago/presentation/cubits/osago_cubit.dart';
 import 'package:osago_bloc_app/features/osago/presentation/cubits/osago_states.dart';
-import 'package:osago_bloc_app/pdf_generator_page.dart';
-import 'package:osago_bloc_app/save_and_open_pdf.dart';
+
 
 import '../../common/localization/language_constants.dart';
 import '../auth/domain/entities/app_user.dart';
@@ -59,15 +58,6 @@ class _PolisScreenState extends State<PolisScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          IconButton(
-              onPressed: () async {
-                final simplePdfFile = await SimplePdfApi.generateSimpleTextPdf(
-                    'My text text', 'Second text');
-                SaveAndOpenDocument.openPdf(simplePdfFile);
-              },
-              icon: Icon(Icons.picture_as_pdf))
-        ],
         title: Text(
           translation(context).homeScreenTitle,
           style: TextStyle(

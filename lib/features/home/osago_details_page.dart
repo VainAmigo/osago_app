@@ -4,19 +4,25 @@ import 'package:osago_bloc_app/common/components/my_button.dart';
 import 'package:osago_bloc_app/save_and_open_pdf.dart';
 
 import '../../common/localization/language_constants.dart';
-import '../../pdf_generator_page.dart';
 import '../osago/domain/entities/osago.dart';
 import '../osago/presentation/components/info_tile.dart';
 
-class OsagoDetailsPage extends StatelessWidget {
+class OsagoDetailsPage extends StatefulWidget {
   final Osago osago;
 
-  const OsagoDetailsPage({super.key, required this.osago});
+  OsagoDetailsPage({super.key, required this.osago});
 
+  @override
+  State<OsagoDetailsPage> createState() => _OsagoDetailsPageState();
+}
+
+class _OsagoDetailsPageState extends State<OsagoDetailsPage> {
   String _dateTimeParser(String dateString) {
     DateTime dateTime = DateTime.parse(dateString);
     return DateFormat("dd.MM.yyyy").format(dateTime);
   }
+
+  final PdfInvoiceService service = PdfInvoiceService();
 
   @override
   Widget build(BuildContext context) {
@@ -41,26 +47,30 @@ class OsagoDetailsPage extends StatelessWidget {
                     children: [
                       InfoTile(
                           title: translation(context).personInfoTilePin,
-                          content: osago.userId),
+                          content: widget.osago.userId),
                       InfoTile(
                         title: translation(context).personInfoTileDateOfBirth,
-                        content: osago.carPlate,
+                        content: widget.osago.carPlate,
                       ),
                       InfoTile(
                         title: translation(context).personInfoTileTypeOfDoc,
-                        content: osago.osagoType,
+                        content: widget.osago.osagoType,
                       ),
                       InfoTile(
                         title: translation(context).personInfoTileDateOfDoc,
-                        content: _dateTimeParser(osago.startDate.toString()),
+                        content: _dateTimeParser(widget.osago.startDate.toString()),
                       ),
                       InfoTile(
                         title: translation(context).personInfoTileDateOfDoc,
-                        content: _dateTimeParser(osago.endDate.toString()),
+                        content: _dateTimeParser(widget.osago.endDate.toString()),
                       ),
                       InfoTile(
                         title: translation(context).personInfoTileDateOfDoc,
-                        content: '${osago.costOfOsago}сом',
+                        content: '${widget.osago.costOfOsago}сом',
+                      ),
+                      InfoTile(
+                        title: translation(context).personInfoTileDateOfDoc,
+                        content: widget.osago.status ? 'Active' : 'Inactive',
                       ),
                     ],
                   ),
@@ -69,10 +79,8 @@ class OsagoDetailsPage extends StatelessWidget {
                 MyButton(
                   text: 'Создать PDF',
                   onPress: () async {
-                    final osagoDetailPdfFile =
-                        await SimplePdfApi.generateSimpleTextPdf(
-                            'text', 'text2');
-                    SaveAndOpenDocument.openPdf(osagoDetailPdfFile);
+                    final data = await service.createOsagoDetailPdf(widget.osago);
+                    service.savePdfFile('pdf_file', data);
                   },
                 ),
               ],

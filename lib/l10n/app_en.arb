@@ -32,6 +32,7 @@
   "buttonRegistration": "Registration",
   "buttonLogin": "Log In",
   "buttonChangePassword": "Change passwrod",
+  "buttonCreatePdf": "Create PDF",
 
 
   "settingsAppBarTitle": "Settings",
