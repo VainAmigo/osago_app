@@ -142,5 +142,14 @@
   "confirmDataTileOsagoPeriodMonth": "месяцев",
   "confirmDataTileOsagoPlate": "Гос.Номер",
   "confirmDataTileOsagoCost": "Сумма страхования",
-  "confirmDataConsentToProcessing": "Согласие на обработку персональных данных"
+  "confirmDataConsentToProcessing": "Согласие на обработку персональных данных",
+
+
+  "createOsagoCardNumber": "Номер карты:",
+  "createOsagoExpiryDate": "Срок действия:",
+  "createOsagoCardHolderName": "Имя держателя карты:",
+  "createOsagoCvv": "CVV код:",
+  "createOsagoAlertTitle": "Подтвердите оплату",
+  "createOsagoAlertYes": "Да",
+  "createOsagoAlertCancel": "Отмена"
 }

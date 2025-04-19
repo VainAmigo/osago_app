@@ -137,5 +137,13 @@
   "confirmDataTileOsagoPeriodMonth": "months",
   "confirmDataTileOsagoPlate": "Car plate",
   "confirmDataTileOsagoCost": "Insurance amount",
-  "confirmDataConsentToProcessing": "Consent to the processing of personal data"
+  "confirmDataConsentToProcessing": "Consent to the processing of personal data",
+
+  "createOsagoCardNumber": "Card Number:",
+  "createOsagoExpiryDate": "Expiry Date:",
+  "createOsagoCardHolderName": "Card Holder name:",
+  "createOsagoCvv": "CVV:",
+  "createOsagoAlertTitle": "Confirm payment",
+  "createOsagoAlertYes": "Yes",
+  "createOsagoAlertCancel": "Cancel"
 }

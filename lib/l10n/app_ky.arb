@@ -129,6 +129,15 @@
   "confirmDataTileOsagoPeriodMonth": "ай",
   "confirmDataTileOsagoPlate": "Мамлекеттик номер",
   "confirmDataTileOsagoCost": "Камсыздандыруу суммасы",
-  "confirmDataConsentToProcessing": "Жеке маалыматтарды иштетүүгө макулдук"
+  "confirmDataConsentToProcessing": "Жеке маалыматтарды иштетүүгө макулдук",
+
+
+  "createOsagoCardNumber": "Карта номери:",
+  "createOsagoExpiryDate": "Жарактуу мөөнөтү:",
+  "createOsagoCardHolderName": "Картанын ээси:",
+  "createOsagoCvv": "CVV коду:",
+  "createOsagoAlertTitle": "Төлөмдү тастыктаңыз",
+  "createOsagoAlertYes": "Ооба",
+  "createOsagoAlertCancel": "Жокко чыгаруу"
 }
 

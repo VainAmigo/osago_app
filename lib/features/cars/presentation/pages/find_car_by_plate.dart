@@ -102,7 +102,7 @@ class _MyCarsScreenState extends State<FindCarByPlate> {
           }
 
           return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24),
             child: InkWell(
               onTap: () =>
                   showCarDetailModalSheet(context, selectedCar, widget.inn),
@@ -135,7 +135,7 @@ class _MyCarsScreenState extends State<FindCarByPlate> {
                       children: [
                         Text(
                           '${selectedCar.brand} ${selectedCar.model}',
-                          overflow: TextOverflow.ellipsis,
+                          overflow: TextOverflow.clip,
                           style: TextStyle(
                             color: Theme.of(context).colorScheme.tertiary,
                             fontSize: 18,
