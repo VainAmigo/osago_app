@@ -29,62 +29,33 @@ class _TestCarPageState extends State<PeriodSelectorPage> {
   double? costOfOsago;
 
   void getCostOfOsago() {
-    double engineVolumeCov;
-    double periodCov;
-    // double ageCov;
-    double cardCov = 1;
+    final engineVolume = double.tryParse(widget.car.engineVolume)?.toInt() ?? 0;
 
-    int engineVolume = double.parse(widget.car.engineVolume).toInt();
+    final engineVolumeCov = switch (widget.car.carType) {
+      'Sedan' => engineVolume > 2.4 ? 1.2 : 1.0,
+      'Bus'   => engineVolume > 3.5 ? 1.65 : 1.45,
+      'Truck' => engineVolume > 5.0 ? 2.0 : 1.6,
+      _       => 1.5,
+    };
 
-    if (widget.car.carType == 'Sedan') {
-      if (engineVolume > 2.4) {
-        engineVolumeCov = 1.2;
-      } else {
-        engineVolumeCov = 1.0;
-      }
-    } else if (widget.car.carType == 'Bus') {
-      if (engineVolume > 3.5) {
-        engineVolumeCov = 1.65;
-      } else {
-        engineVolumeCov = 1.45;
-      }
-    } else if (widget.car.carType == 'Truck') {
-      if (engineVolume > 5) {
-        engineVolumeCov = 2.0;
-      } else {
-        engineVolumeCov = 1.6;
-      }
-    } else {
-      engineVolumeCov = 1.5;
-    }
+    final cardCov = widget.car.certificate ? 0.8 : 1.0;
 
-    if (widget.car.certificate) {
-      cardCov = 0.8;
-    }
+    final periodCov = {
+      15: 0.2,
+      30: 0.3,
+      90: 0.5,
+      180: 0.7,
+      270: 0.9,
+      365: 1.0,
+    }[periodOfPolis] ?? 1.0;
 
-    switch (periodOfPolis) {
-      case 15:
-        periodCov = 0.2;
-      case 30:
-        periodCov = 0.3;
-      case 90:
-        periodCov = 0.5;
-      case 180:
-        periodCov = 0.7;
-      case 270:
-        periodCov = 0.9;
-      case 365:
-        periodCov = 1.0;
-      default:
-        periodCov = 1.0;
-    }
 
-    costOfOsago = 1680 * engineVolumeCov * periodCov * cardCov;
-
-    costOfOsago = costOfOsago!.roundToDouble();
+    costOfOsago = (2000 * engineVolumeCov * periodCov * cardCov).roundToDouble();
+    // costOfOsago = (1680 * engineVolumeCov * periodCov * cardCov).roundToDouble();
 
     setState(() {});
   }
+
 
   @override
   Widget build(BuildContext context) {

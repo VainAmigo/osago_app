@@ -51,17 +51,19 @@ class _CreateOsagoPageState extends State<CreateOsagoPage> {
         context: context,
         builder: (context) => AlertDialog(
           title: Text(translation(context).createOsagoAlertTitle),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: [
-                Text(
-                    '${translation(context).createOsagoCardNumber} $cardNumber'),
-                Text(
-                    '${translation(context).createOsagoExpiryDate} $expiryDate'),
-                Text(
-                    '${translation(context).createOsagoCardHolderName} $cardHolderName'),
-                Text('${translation(context).createOsagoCvv} $cvvCode'),
-              ],
+          content: Container(
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 40),
+            child: SingleChildScrollView(
+              child: ListBody(
+                children: [
+                  Text(
+                      '${translation(context).createOsagoCardNumber} $cardNumber'),
+                  Text(
+                      '${translation(context).createOsagoExpiryDate} $expiryDate'),
+                  Text('${translation(context).createOsagoCvv} $cvvCode'),
+                ],
+              ),
             ),
           ),
           actions: [
@@ -88,7 +90,6 @@ class _CreateOsagoPageState extends State<CreateOsagoPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getCurrentUser();
   }
@@ -137,11 +138,14 @@ class _CreateOsagoPageState extends State<CreateOsagoPage> {
                   cardHolderName: cardHolderName,
                   cvvCode: cvvCode,
                   showBackView: isCvvFocused,
+                  cardBgColor: Theme.of(context).colorScheme.primary,
+                  isHolderNameVisible: false,
                   onCreditCardWidgetChange: (p0) {},
                 ),
 
                 // credit card form
                 CreditCardForm(
+                  isHolderNameVisible: false,
                   cardNumber: cardNumber,
                   expiryDate: expiryDate,
                   cardHolderName: cardHolderName,
@@ -157,14 +161,13 @@ class _CreateOsagoPageState extends State<CreateOsagoPage> {
                   formKey: formKey,
                 ),
 
-                const Spacer(),
-
+                 const Spacer(),
                 MyButton(
                   text: translation(context).buttonContinue,
                   onPress: () => userTappedPay(),
                 ),
 
-                const SizedBox(height: 25),
+                const SizedBox(height: 40),
               ],
             ),
           ),
