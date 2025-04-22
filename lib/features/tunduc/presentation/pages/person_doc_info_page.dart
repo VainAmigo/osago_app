@@ -6,17 +6,20 @@ import 'package:osago_bloc_app/features/tunduc/presentation/cubits/person_doc_st
 
 import '../../../../common/components/my_button.dart';
 import '../../../../common/components/top_text_block.dart';
+import '../../../cars/domain/entities/car.dart';
 import '../../../osago/presentation/components/info_tile.dart';
+import '../../../osago/presentation/pages/period_selector_page.dart';
 import '../cubits/person_doc_cubit.dart';
 
 class PersonDocInfo extends StatefulWidget {
   final String inn;
-  final Function()? onPress;
+  final String osagoType;
+  final Car car;
+
 
   const PersonDocInfo({
     super.key,
-    required this.onPress,
-    required this.inn,
+    required this.inn, required this.osagoType, required this.car,
   });
 
   @override
@@ -100,7 +103,19 @@ class _PersonDocInfoState extends State<PersonDocInfo> {
                       padding: const EdgeInsets.symmetric(vertical: 24.0),
                       child: MyButton(
                         text: translation(context).buttonConfirm,
-                        onPress: widget.onPress,
+                        onPress: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => PeriodSelectorPage(
+                                car: widget.car,
+                                osagoType: widget.osagoType,
+                                carOwnerName: '${personDocDoc.firstName} ${personDocDoc.secondName}',
+                                polisOwnerName: '${personDocDoc.firstName} ${personDocDoc.secondName}',
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ],

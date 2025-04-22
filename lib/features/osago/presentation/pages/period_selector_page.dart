@@ -8,17 +8,16 @@ import 'package:osago_bloc_app/features/osago/presentation/pages/confirm_info_pa
 import '../../../../common/components/top_text_block.dart';
 import '../../../cars/domain/entities/car.dart';
 
-
-
-
 class PeriodSelectorPage extends StatefulWidget {
   final String osagoType;
   final Car car;
+  final String carOwnerName;
+  final String polisOwnerName;
 
   const PeriodSelectorPage({
     super.key,
     required this.car,
-    required this.osagoType,
+    required this.osagoType, required this.carOwnerName, required this.polisOwnerName,
   });
 
   @override
@@ -118,7 +117,8 @@ class _TestCarPageState extends State<PeriodSelectorPage> {
                 padding: const EdgeInsets.symmetric(vertical: 24.0),
                 child: Column(
                   children: [
-                    if (costOfOsago != null) myCostBlock(cost: costOfOsago.toString()),
+                    if (costOfOsago != null)
+                      myCostBlock(cost: costOfOsago.toString()),
                     SizedBox(height: 24),
                     MyButton(
                       text: translation(context).buttonContinue,
@@ -131,6 +131,8 @@ class _TestCarPageState extends State<PeriodSelectorPage> {
                               periodOfPolis: periodOfPolis,
                               costOfOsago: costOfOsago.toString(),
                               osagoType: widget.osagoType,
+                              carOwnerName: widget.carOwnerName,
+                              polisOwnerName: widget.polisOwnerName,
                             ),
                           ),
                         );

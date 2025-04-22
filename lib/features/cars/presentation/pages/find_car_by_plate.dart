@@ -13,11 +13,12 @@ import '../cubits/car_states.dart';
 class FindCarByPlate extends StatefulWidget {
   final String carPlate;
   final String inn;
+  final String carOwnerName;
 
   const FindCarByPlate({
     super.key,
     required this.carPlate,
-    required this.inn,
+    required this.inn, required this.carOwnerName,
   });
 
   @override
@@ -43,6 +44,7 @@ class _MyCarsScreenState extends State<FindCarByPlate> {
       builder: (context) => CarDetailModalSheet(
         car: car,
         inn: inn,
+        carOwnerName: widget.carOwnerName,
       ),
     );
   }

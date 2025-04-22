@@ -8,8 +8,9 @@ import '../../../domain/entities/car.dart';
 class CarDetailModalSheet extends StatelessWidget {
   final Car car;
   final String inn;
+  final String carOwnerName;
 
-  const CarDetailModalSheet({super.key, required this.car, required this.inn});
+  const CarDetailModalSheet({super.key, required this.car, required this.inn, required this.carOwnerName});
 
   @override
   Widget build(BuildContext context) {
@@ -141,6 +142,7 @@ class CarDetailModalSheet extends StatelessWidget {
                     builder: (context) => OsagoTypesPage(
                       car: car,
                       inn: inn,
+                      carOwnerName: carOwnerName,
                     ),
                   ),
                 );

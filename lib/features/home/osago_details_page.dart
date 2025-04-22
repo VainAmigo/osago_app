@@ -46,34 +46,40 @@ class _OsagoDetailsPageState extends State<OsagoDetailsPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       InfoTile(
-                          title: translation(context).personInfoTilePin,
-                          content: widget.osago.userId),
+                          title: 'Полистин Ээси',
+                          content: widget.osago.userPin),
                       InfoTile(
-                        title: translation(context).personInfoTileDateOfBirth,
+                        title: 'Унаанын номери',
                         content: widget.osago.carPlate,
                       ),
                       InfoTile(
-                        title: translation(context).personInfoTileTypeOfDoc,
+                        title: 'Полис туру',
                         content: widget.osago.osagoType,
                       ),
                       InfoTile(
-                        title: translation(context).personInfoTileDateOfDoc,
-                        content: _dateTimeParser(widget.osago.startDate.toString()),
+                        title: 'Башталыш жана Бутту',
+                        content: '${_dateTimeParser(widget.osago.startDate.toString())} - ${_dateTimeParser(widget.osago.endDate.toString())}',
                       ),
                       InfoTile(
-                        title: translation(context).personInfoTileDateOfDoc,
-                        content: _dateTimeParser(widget.osago.endDate.toString()),
-                      ),
-                      InfoTile(
-                        title: translation(context).personInfoTileDateOfDoc,
+                        title: 'Баасы',
                         content: '${widget.osago.costOfOsago}сом',
                       ),
                       InfoTile(
-                        title: translation(context).personInfoTileDateOfDoc,
+                        title: 'Статусу',
                         content: widget.osago.status ? 'Active' : 'Inactive',
                       ),
                     ],
                   ),
+                ),
+                const SizedBox(height: 10),
+                Container(
+                  padding: EdgeInsets.all(10),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Theme.of(context).colorScheme.inversePrimary,
+                  ),
+
                 ),
                 const Spacer(),
                 MyButton(

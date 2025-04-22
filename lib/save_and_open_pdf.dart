@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:typed_data';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:open_file/open_file.dart';
@@ -49,15 +48,15 @@ class PdfInvoiceService {
     final startDate = _formatDate(osago.startDate.toString());
     final endDate = _formatDate(osago.endDate.toString());
 
-    final pinAndName = '${osago.userId}   ${osago.userId} ${osago.osagoType}';
-    final nameOfOwner = '${osago.userId} ${osago.osagoType}';
-    final carBrandAndModel = '${osago.carPlate} ${osago.osagoType}';
+    final pinAndName = '${osago.polisOwnerPin}   ${osago.polisOwnerName}';
+    final nameOfOwner = '${osago.carOwnerName}';
+    final carBrandAndModel = '${osago.carBrand} ${osago.carModel}';
     final carPlate = osago.carPlate;
-    final carIdNumber = osago.id;
+    final carIdNumber = osago.carId;
     final carTsNumber = osago.id;
 
-    final firstDriverName = 'tilek Berdaliev';
-    final fistDriverDocNumber = '012120012';
+    final firstDriverName = osago.carOwnerName;
+    final fistDriverDocNumber = 'ID ${osago.carId}';
 
     final textStyle10 = pw.TextStyle(font: _regularFont, fontSize: 10);
     final textStyle8 = pw.TextStyle(font: _regularFont, fontSize: 8);
@@ -140,7 +139,7 @@ class PdfInvoiceService {
                         '  Автотранспорт каражатынын катталышы \n  жөнүндө күбөлүк, техникалык паспорт же техникалык \n  талон (же ушул сыяктуу документтер) \n  Свидетельство о регистрации \n  автотранспортного средства технический паспорт,\n  технический талон (либо аналогичный документ)',
                         textStyle8,
                         _textContainer(
-                            'Свидетельство о регистрации ТС, ${carTsNumber}',
+                            'Свидетельство о регистрации ТС, $carTsNumber',
                             textStyleBold10)),
 
                     pw.SizedBox(height: 10),
@@ -263,7 +262,7 @@ class PdfInvoiceService {
             ),
           ],
         ),
-        ...List.generate(4, (index) {
+        ...List.generate(1, (index) {
           return pw.TableRow(
             children: [
               pw.Padding(

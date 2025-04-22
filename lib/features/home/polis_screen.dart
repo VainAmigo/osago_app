@@ -6,7 +6,6 @@ import 'package:osago_bloc_app/features/home/osago_details_page.dart';
 import 'package:osago_bloc_app/features/osago/presentation/cubits/osago_cubit.dart';
 import 'package:osago_bloc_app/features/osago/presentation/cubits/osago_states.dart';
 
-
 import '../../common/localization/language_constants.dart';
 import '../auth/domain/entities/app_user.dart';
 import '../auth/presentation/cubits/auth_cubit.dart';
@@ -98,20 +97,17 @@ class _PolisScreenState extends State<PolisScreen> {
             return Padding(
               padding: const EdgeInsets.all(24.0),
               child: Center(
-                child: Column(
-                  children: [
-                    Text(
-                      translation(context).homeScreenEmptyText,
-                      style: TextStyle(
-                        color: Theme
-                            .of(context)
-                            .colorScheme
-                            .secondary,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    )
-                  ],
+                child: Text(
+                  translation(context).homeScreenEmptyText,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Theme
+                        .of(context)
+                        .colorScheme
+                        .secondary,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
             );

@@ -11,6 +11,8 @@ class ConfirmInfoPage extends StatelessWidget {
   final int periodOfPolis;
   final String costOfOsago;
   final String osagoType;
+  final String carOwnerName;
+  final String polisOwnerName;
 
   const ConfirmInfoPage({
     super.key,
@@ -18,21 +20,24 @@ class ConfirmInfoPage extends StatelessWidget {
     required this.periodOfPolis,
     required this.costOfOsago,
     required this.osagoType,
+    required this.carOwnerName,
+    required this.polisOwnerName,
   });
 
   @override
   Widget build(BuildContext context) {
     bool osagoTypeText;
-    if (osagoType=='Для себя'){
+    if (osagoType == 'Для себя') {
       osagoTypeText = true;
     } else {
       osagoTypeText = false;
     }
-    
-    
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(osagoTypeText ? translation(context).insuranceTypeMySelf : translation(context).insuranceTypeUnlimited),
+        title: Text(osagoTypeText
+            ? translation(context).insuranceTypeMySelf
+            : translation(context).insuranceTypeUnlimited),
       ),
       body: SafeArea(
         child: Padding(
@@ -114,24 +119,30 @@ class ConfirmInfoPage extends StatelessWidget {
                       child: Column(
                         children: [
                           InfoTile(
-                            title: translation(context).confirmDataTileOsago,
-                            content: translation(context).confirmDataTileOsagoName
+                              title: translation(context).confirmDataTileOsago,
+                              content: translation(context)
+                                  .confirmDataTileOsagoName),
+                          InfoTile(
+                            title:
+                                translation(context).confirmDataTileOsagoType,
+                            content: osagoTypeText
+                                ? translation(context).insuranceTypeMySelf
+                                : translation(context).insuranceTypeUnlimited,
                           ),
                           InfoTile(
-                            title: translation(context).confirmDataTileOsagoType,
-                            content: osagoTypeText ? translation(context).insuranceTypeMySelf : translation(context).insuranceTypeUnlimited,
-                          ),
-                          InfoTile(
-                            title: translation(context).confirmDataTileOsagoPeriod,
+                            title:
+                                translation(context).confirmDataTileOsagoPeriod,
                             content:
                                 '${(periodOfPolis / 30).round().toString()} ${translation(context).confirmDataTileOsagoPeriodMonth}',
                           ),
                           InfoTile(
-                            title: translation(context).confirmDataTileOsagoPlate,
+                            title:
+                                translation(context).confirmDataTileOsagoPlate,
                             content: car.govPlate,
                           ),
                           InfoTile(
-                            title: translation(context).confirmDataTileOsagoCost,
+                            title:
+                                translation(context).confirmDataTileOsagoCost,
                             content: '${costOfOsago.toString()}c',
                           ),
                         ],
@@ -163,10 +174,12 @@ class ConfirmInfoPage extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) => CreateOsagoPage(
-                                carPlate: car.govPlate,
+                                car: car,
                                 periodOfPolis: periodOfPolis,
                                 costOfOsago: costOfOsago,
                                 osagoType: osagoType,
+                                carOwnerName: carOwnerName,
+                                polisOwnerName: polisOwnerName,
                               ),
                             ),
                           );

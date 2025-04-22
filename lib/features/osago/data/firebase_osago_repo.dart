@@ -36,7 +36,7 @@ class FirebaseOsagoRepo implements OsagoRepo {
   Future<List<Osago>> fetchUserOsago(String userId) async {
     try {
       final userOsagoSnapshot = await osagoCollection.where(
-          'userId', isEqualTo: userId).get();
+          'userPin', isEqualTo: userId).get();
 
       final userOsago = userOsagoSnapshot.docs.map((doc) =>
           Osago.fromJson(doc.data() as Map<String, dynamic>)).toList();

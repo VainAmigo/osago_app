@@ -148,6 +148,7 @@ class BlocTextField extends StatelessWidget {
                           MaterialPageRoute(
                             builder: (context) => CarPlatePage(
                               inn: personDocDoc.inn,
+                              carOwnerName: '${personDocDoc.firstName} ${personDocDoc.secondName}',
                             ),
                           ),
                         );

@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:osago_bloc_app/common/components/top_text_block.dart';
 import 'package:osago_bloc_app/common/localization/language_constants.dart';
-import 'package:osago_bloc_app/features/osago/presentation/pages/my_info_page.dart';
 import 'package:osago_bloc_app/features/osago/presentation/pages/period_selector_page.dart';
 
 import '../../../cars/domain/entities/car.dart';
+import '../../../tunduc/presentation/pages/person_doc_info_page.dart';
 import '../components/osago_type_card.dart';
 
 class OsagoTypesPage extends StatelessWidget {
   final Car car;
   final String inn;
+  final String carOwnerName;
 
   const OsagoTypesPage({
     super.key,
     required this.inn,
-    required this.car,
+    required this.car, required this.carOwnerName,
   });
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +40,7 @@ class OsagoTypesPage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) =>
-                        PeriodSelectorPage(car: car, osagoType: 'Неограничено'),
+                        PeriodSelectorPage(car: car, osagoType: 'Неограничено', carOwnerName: carOwnerName, polisOwnerName: '',),
                   ),
                 );
               },
@@ -52,7 +55,7 @@ class OsagoTypesPage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) =>
-                        MyInfoPage(car: car, osagoType: 'Для себя'),
+                        PersonDocInfo(car: car, osagoType: 'Для себя', inn: inn,),
                   ),
                 );
               },

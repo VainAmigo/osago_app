@@ -7,7 +7,6 @@ import 'package:osago_bloc_app/features/osago/presentation/cubits/osago_cubit.da
 
 import '../../../auth/domain/entities/app_user.dart';
 import '../../../auth/presentation/cubits/auth_cubit.dart';
-import '../../../osago/presentation/cubits/osago_states.dart';
 import '../../../plateParser/car_plate_parser.dart';
 import '../../../plateParser/new_car_plate.dart';
 import '../../../plateParser/old_car_plate.dart';
@@ -66,6 +65,7 @@ class _MyCarsScreenState extends State<MyCarsScreen> {
         builder: (context) => CarDetailModalSheet(
           car: car,
           inn: inn,
+          carOwnerName: '',
         ),
       );
     }

@@ -9,20 +9,25 @@ import 'package:osago_bloc_app/features/osago/presentation/cubits/osago_states.d
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 
 import '../../../auth/domain/entities/app_user.dart';
+import '../../../cars/domain/entities/car.dart';
 import '../../domain/entities/osago.dart';
 
 class CreateOsagoPage extends StatefulWidget {
-  final String carPlate;
+  final Car car;
   final int periodOfPolis;
   final String costOfOsago;
   final String osagoType;
+  final String carOwnerName;
+  final String polisOwnerName;
 
   const CreateOsagoPage({
     super.key,
-    required this.carPlate,
+    required this.car,
     required this.periodOfPolis,
     required this.costOfOsago,
     required this.osagoType,
+    required this.carOwnerName,
+    required this.polisOwnerName,
   });
 
   @override
@@ -39,7 +44,6 @@ class _CreateOsagoPageState extends State<CreateOsagoPage> {
   String cvvCode = '';
   bool isCvvFocused = false;
 
-
   void userTappedPay() {
     if (formKey.currentState!.validate()) {
       // only show dialog if form is valid
@@ -50,9 +54,12 @@ class _CreateOsagoPageState extends State<CreateOsagoPage> {
           content: SingleChildScrollView(
             child: ListBody(
               children: [
-                Text('${translation(context).createOsagoCardNumber} $cardNumber'),
-                Text('${translation(context).createOsagoExpiryDate} $expiryDate'),
-                Text('${translation(context).createOsagoCardHolderName} $cardHolderName'),
+                Text(
+                    '${translation(context).createOsagoCardNumber} $cardNumber'),
+                Text(
+                    '${translation(context).createOsagoExpiryDate} $expiryDate'),
+                Text(
+                    '${translation(context).createOsagoCardHolderName} $cardHolderName'),
                 Text('${translation(context).createOsagoCvv} $cvvCode'),
               ],
             ),
@@ -89,12 +96,20 @@ class _CreateOsagoPageState extends State<CreateOsagoPage> {
   void uploadOsago() {
     final osagoCubit = context.read<OsagoCubit>();
 
-    final DateTime endDate = DateTime.now().add(Duration(days: widget.periodOfPolis));
+    final DateTime endDate =
+        DateTime.now().add(Duration(days: widget.periodOfPolis));
     // create new osago
     final newOsago = Osago(
       id: DateTime.now().millisecondsSinceEpoch.toString(),
-      userId: currentUser!.inn,
-      carPlate: widget.carPlate,
+      userPin: currentUser!.inn,
+      polisOwnerPin: currentUser!.inn,
+      polisOwnerName: widget.polisOwnerName,
+      carOwnerName: widget.carOwnerName,
+      carOwnerPin: widget.car.inn,
+      carId: widget.car.carIdNumber,
+      carBrand: widget.car.brand,
+      carModel: widget.car.model,
+      carPlate: widget.car.govPlate,
       costOfOsago: widget.costOfOsago,
       osagoType: widget.osagoType,
       startDate: DateTime.now(),
@@ -144,8 +159,10 @@ class _CreateOsagoPageState extends State<CreateOsagoPage> {
 
                 const Spacer(),
 
-                MyButton(text: translation(context).buttonContinue, onPress: () => userTappedPay(),),
-
+                MyButton(
+                  text: translation(context).buttonContinue,
+                  onPress: () => userTappedPay(),
+                ),
 
                 const SizedBox(height: 25),
               ],

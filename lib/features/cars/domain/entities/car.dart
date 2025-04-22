@@ -9,6 +9,7 @@ class Car {
   final String carCategory;
   final String motorType;
   final String engineVolume;
+  final String carIdNumber;
   final bool certificate;
 
   Car(
@@ -22,7 +23,8 @@ class Car {
       required this.carCategory,
       required this.motorType,
       required this.engineVolume,
-      required this.certificate});
+      required this.certificate,
+      required this.carIdNumber});
 
   Car copyWith() {
     return Car(
@@ -36,7 +38,8 @@ class Car {
       carCategory: carCategory,
       motorType: motorType,
       engineVolume: engineVolume,
-      certificate: certificate
+      certificate: certificate,
+      carIdNumber: carIdNumber,
     );
   }
 
@@ -53,6 +56,7 @@ class Car {
       'motorType': motorType,
       'engineVolume': engineVolume,
       'certificate': certificate,
+      'carIdNumber': carIdNumber,
     };
   }
 
@@ -69,6 +73,7 @@ class Car {
       motorType: json['motorType'],
       engineVolume: json['engineVolume'],
       certificate: json['certificate'],
+      carIdNumber:  json['carIdNumber'],
     );
   }
 }

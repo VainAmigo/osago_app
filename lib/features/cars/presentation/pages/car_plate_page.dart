@@ -7,8 +7,9 @@ import 'package:osago_bloc_app/features/cars/presentation/pages/find_car_by_plat
 
 class CarPlatePage extends StatelessWidget {
   final String inn;
+  final String carOwnerName;
 
-  const CarPlatePage({super.key, required this.inn});
+  const CarPlatePage({super.key, required this.inn, required this.carOwnerName});
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +43,7 @@ class CarPlatePage extends StatelessWidget {
                       builder: (context) => FindCarByPlate(
                         carPlate: controller.text,
                         inn: inn,
+                        carOwnerName: carOwnerName,
                       ),
                     ),
                   );
