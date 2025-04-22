@@ -30,6 +30,7 @@
   "buttonRegistration": "Катталуу",
   "buttonLogin": "Кирүү",
   "buttonChangePassword": "Сырсөздү өзгөртүү",
+  "buttonCreatePdf": "PDF түзүү",
 
   "settingsAppBarTitle": "Жөндөөлөр",
   "settingsPersonalData": "Жеке маалыматтар",
@@ -62,6 +63,19 @@
   "createOsagoModalSheetTitle": "Кайсы унаага камсыздандыруу аласыз",
   "createOsagoModalSheetMyCar": "Менин унаама",
   "createOsagoModalSheetAnotherCar": "Башка унаага",
+
+  "osagoDetailPageTopTitle": "Полис тууралуу маалымат",
+  "osagoDetailPageTopText": "Полистин көчүрмөсүн жүктөп алыңыз же полистин QR кодун алыңыз",
+  "osagoDetailPageIngoTileOwner": "Камсыздандыруучу",
+  "osagoDetailPageIngoTileCarPlate": "Машинанын номери",
+  "osagoDetailPageIngoTileDates": "Полистин башталышы жана аягы",
+  "osagoDetailPageIngoTileCost": "Баасы",
+  "osagoDetailPageIngoTileStatus": "Статусу",
+  "osagoDetailPageIngoTileStatusActive": "Активдүү",
+  "osagoDetailPageIngoTileStatusInactive": "Активдүү эмес",
+
+
+
 
   "myCarsAppBarTitle": "Унааны тандаңыз",
   "myCarsCardYearText": "Жылы",

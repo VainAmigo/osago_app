@@ -34,6 +34,7 @@
   "buttonRegistration": "Зарегестрироватся",
   "buttonLogin": "Войти",
   "buttonChangePassword": "Изменить пароль",
+  "buttonCreatePdf": "Создать PDF",
 
 
   "settingsAppBarTitle": "Настройки",
@@ -68,6 +69,17 @@
   "createOsagoModalSheetTitle": "Выберите на какую машину оформить страховку",
   "createOsagoModalSheetMyCar": "На мои авто",
   "createOsagoModalSheetAnotherCar": "На другое авто",
+
+
+  "osagoDetailPageTopTitle": "Информация о полисе",
+  "osagoDetailPageTopText": "Скачайте копию полиса или получите QR код вашего полиса",
+  "osagoDetailPageIngoTileOwner": "Страхователь",
+  "osagoDetailPageIngoTileCarPlate": "Гос Номер",
+  "osagoDetailPageIngoTileDates": "Начала и конец полиса",
+  "osagoDetailPageIngoTileCost": "Цена",
+  "osagoDetailPageIngoTileStatus": "Статус",
+  "osagoDetailPageIngoTileStatusActive": "Активный",
+  "osagoDetailPageIngoTileStatusInactive": "Неактивный",
 
 
 

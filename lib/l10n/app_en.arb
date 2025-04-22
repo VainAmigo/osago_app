@@ -66,6 +66,17 @@
   "createOsagoModalSheetMyCar": "On my cars",
   "createOsagoModalSheetAnotherCar": "On another car",
 
+  "osagoDetailPageTopTitle": "Policy Information",
+  "osagoDetailPageTopText": "Download a copy of the policy or get a QR code for your policy",
+  "osagoDetailPageIngoTileOwner": "Policyholder",
+  "osagoDetailPageIngoTileCarPlate": "License Plate",
+  "osagoDetailPageIngoTileDates": "Policy Start and End Dates",
+  "osagoDetailPageIngoTileCost": "Price",
+  "osagoDetailPageIngoTileStatus": "Status",
+  "osagoDetailPageIngoTileStatusActive": "Active",
+  "osagoDetailPageIngoTileStatusInactive": "Inactive",
+
+
 
   "myCarsAppBarTitle": "Select auto",
   "myCarsCardYearText": "Year of release",
