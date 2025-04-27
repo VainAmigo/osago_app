@@ -118,6 +118,7 @@ class _CreateOsagoPageState extends State<CreateOsagoPage> {
       status: true,
     );
 
+
     osagoCubit.createOsago(newOsago);
   }
 

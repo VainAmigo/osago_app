@@ -11,6 +11,7 @@ class QrCodeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return QrImageView(
       data: url,
       version: QrVersions.auto,

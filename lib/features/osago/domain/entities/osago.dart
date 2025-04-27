@@ -93,7 +93,7 @@ class Osago {
       carId: json['carId'],
       osagoType: json['osagoType'],
       costOfOsago: json['costOfOsago'],
-      status: json['status']
+      status: json['status'],
     );
   }
 }

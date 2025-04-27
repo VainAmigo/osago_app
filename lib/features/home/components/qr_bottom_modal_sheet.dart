@@ -4,8 +4,9 @@ import '../../../common/components/qr_code_widget.dart';
 
 class QrCodeBottomModalSheet extends StatelessWidget {
   final String polisId;
+  final String url;
 
-  const QrCodeBottomModalSheet({super.key, required this.polisId});
+  const QrCodeBottomModalSheet({super.key, required this.polisId, required this.url});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class QrCodeBottomModalSheet extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          QrCodeWidget(url: 'https://example.com')
+          QrCodeWidget(url: url)
         ],
       ),
     );

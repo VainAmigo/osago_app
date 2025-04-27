@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:open_file/open_file.dart';
@@ -355,12 +356,19 @@ class PdfInvoiceService {
     );
   }
 
-  Future<void> savePdfFile(String fileName, Uint8List byteList) async {
+
+  /// Сохраняет PDF в Firebase Storage и возвращает URL
+  Future<String> uploadPdfToFirebase(Uint8List pdfBytes, String fileName) async {
+    final storageRef = FirebaseStorage.instance.ref().child('osago/$fileName.pdf');
+    await storageRef.putData(pdfBytes, SettableMetadata(contentType: 'application/pdf'));
+    final downloadUrl = await storageRef.getDownloadURL();
+    return downloadUrl;
+  }
+
+  /// Сохраняет файл локально и открывает
+  Future<void> openPdfOnDevice(Uint8List byteList, String fileName) async {
     final output = await getTemporaryDirectory();
     final filePath = "${output.path}/$fileName.pdf";
-
-    
-
     final file = File(filePath);
     await file.writeAsBytes(byteList);
     await OpenFile.open(filePath);
