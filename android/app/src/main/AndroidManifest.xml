@@ -7,7 +7,7 @@
 
     <application
 
-        android:label="osago_bloc_app"
+        android:label="Osago"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
 
