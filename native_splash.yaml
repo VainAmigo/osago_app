@@ -1,0 +1,9 @@
+flutter_native_splash:
+  android: true
+  ios: true
+  web: false
+
+  color: "#F4F6FA"
+
+  image: "assets/logo/logo.png"
+#  branding: "OSAGO

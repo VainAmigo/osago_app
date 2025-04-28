@@ -1,3 +1,4 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:osago_bloc_app/common/theme/theme_cubit.dart';
@@ -9,6 +10,7 @@ import 'package:osago_bloc_app/features/osago/presentation/cubits/osago_cubit.da
 import 'package:osago_bloc_app/features/tunduc/data/firebase_person_doc_repo.dart';
 import 'package:osago_bloc_app/features/tunduc/presentation/cubits/person_doc_cubit.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:lottie/lottie.dart';
 
 import 'common/localization/language_constants.dart';
 import 'features/auth/data/firebase_auth_repo.dart';
@@ -17,8 +19,7 @@ import 'features/auth/presentation/cubits/auth_states.dart';
 import 'features/auth/presentation/pages/auth_page.dart';
 
 class MyApp extends StatefulWidget {
-
-  MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -30,7 +31,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   Locale? _locale;
 
   setLocale(Locale locale) {
@@ -39,6 +39,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  @override
   void initState() {
     super.initState();
     _loadLocale();
@@ -50,7 +51,6 @@ class _MyAppState extends State<MyApp> {
       _locale = locale;
     });
   }
-
 
   // auth repo
   final firebaseAuthRepo = FirebaseAuthRepo();
@@ -105,35 +105,39 @@ class _MyAppState extends State<MyApp> {
         builder: (context, currentTheme) => MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: currentTheme,
-
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           locale: _locale,
 
           // check current user
-          home: BlocConsumer<AuthCubit, AuthState>(
-            builder: (context, authState) {
-              print(authState);
+          home: AnimatedSplashScreen(
+            splashIconSize: 400,
+            splash: Center(
+              child: Lottie.asset('assets/logo/logo_animation.json'),
+            ),
+            nextScreen: BlocConsumer<AuthCubit, AuthState>(
+              builder: (context, authState) {
 
-              if (authState is Unauthenticated) {
-                return const AuthPage();
-              }
-              if (authState is Authenticated) {
-                return const HomePage();
-              } else {
-                return const Scaffold(
-                  body: Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                );
-              }
-            },
-            listener: (context, authState) {
-              if (authState is AuthError) {
-                ScaffoldMessenger.of(context)
-                    .showSnackBar(SnackBar(content: Text(authState.message)));
-              }
-            },
+                if (authState is Unauthenticated) {
+                  return const AuthPage();
+                }
+                if (authState is Authenticated) {
+                  return const HomePage();
+                } else {
+                  return const Scaffold(
+                    body: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  );
+                }
+              },
+              listener: (context, authState) {
+                if (authState is AuthError) {
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(SnackBar(content: Text(authState.message)));
+                }
+              },
+            ),
           ),
         ),
       ),
