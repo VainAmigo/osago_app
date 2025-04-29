@@ -23,7 +23,7 @@ class MyButton extends StatelessWidget {
           disabledBackgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.3),
           disabledForegroundColor: Colors.white,
           side: BorderSide.none,
-          padding: EdgeInsets.symmetric(vertical: 16),
+          padding: EdgeInsets.symmetric(vertical: 20),
           textStyle: TextStyle(
             fontSize: 16,
             color: Colors.white,

@@ -3,6 +3,7 @@ import 'package:osago_bloc_app/features/home/cars_page.dart';
 import 'package:osago_bloc_app/features/home/polis_screen.dart';
 
 import '../../common/localization/language_constants.dart';
+import 'emergency/emergency_screen.dart';
 import 'services_page.dart';
 import 'settings/settings_page.dart';
 
@@ -19,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   final pages = [
     PolisScreen(),
     CarsPage(),
-    ServicesPage(),
+    EmergencyScreen(),
     SettingsPage(),
   ];
 

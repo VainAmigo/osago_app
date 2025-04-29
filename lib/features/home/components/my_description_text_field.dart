@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 
-class MyTextField extends StatelessWidget {
+class MyDescriptionTextField extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
-  final bool obscureText;
 
 
-
-  const MyTextField({
+  const MyDescriptionTextField({
     super.key,
     required this.controller,
     required this.hintText,
-    required this.obscureText,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      maxLines: 5,
       controller: controller,
-      obscureText: obscureText,
+      obscureText: false,
+      autofocus: false,
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Theme.of(context).colorScheme.onSecondary),

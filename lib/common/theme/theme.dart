@@ -8,7 +8,7 @@ ThemeData lightMode = ThemeData(
     onPrimary: Color(0xFF2C3E50), // secondary primary
     inversePrimary: Color(0xFFFFFFFF), // background surface
     tertiary: Color(0xFF1E2022), // text
-    secondary: Color(0xFF969AAE), // grey
+    secondary: Color(0xFF7C819A), // grey
     onSecondary: Color(0xFFE9ECF2), // border color
   ),
   scaffoldBackgroundColor: Color(0xFFF4F6FA),

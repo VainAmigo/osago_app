@@ -60,10 +60,12 @@ class _OsagoDetailsPageState extends State<OsagoDetailsPage> {
         _downloadUrl = downloadUrl;
         isPdfGenerated = true;
       });
-
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('error: $e'), backgroundColor: Theme.of(context).colorScheme.primary,),
+        SnackBar(
+          content: Text('error: $e'),
+          backgroundColor: Theme.of(context).colorScheme.primary,
+        ),
       );
     }
   }
@@ -79,83 +81,98 @@ class _OsagoDetailsPageState extends State<OsagoDetailsPage> {
         backgroundColor: Colors.transparent,
       ),
       body: SafeArea(
-        child: isPdfGenerated ? Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0),
-          child: Column(
-            children: [
-              topTextBlock(
-                title: translation(context).osagoDetailPageTopTitle,
-                text: translation(context).osagoDetailPageTopText,
-              ),
-              const SizedBox(height: 24),
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Theme.of(context).colorScheme.inversePrimary,
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    InfoTile(
-                      title: translation(context)
-                          .osagoDetailPageIngoTileCarPlate,
-                      content: widget.osago.carPlate,
-                    ),
-                    InfoTile(
-                      title:
-                          translation(context).osagoDetailPageIngoTileDates,
-                      content:
-                          '${_dateTimeParser(widget.osago.startDate.toString())} - ${_dateTimeParser(widget.osago.endDate.toString())}',
-                    ),
-                    InfoTile(
-                      title:
-                          translation(context).osagoDetailPageIngoTileCost,
-                      content: '${widget.osago.costOfOsago}сом',
-                    ),
-                    InfoTile(
-                      title: translation(context)
-                          .osagoDetailPageIngoTileStatus,
-                      content: widget.osago.status
-                          ? translation(context)
-                              .osagoDetailPageIngoTileStatusActive
-                          : translation(context)
-                              .osagoDetailPageIngoTileStatusInactive,
-                    ),
-                  ],
-                ),
-              ),
-              const Spacer(),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 40.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: MyButton(
-                        text: translation(context).buttonCreatePdf,
-                        onPress: isPdfGenerated
-                            ? () {
-                                _openPdf();
-                              }
-                            : null,
+          child: isPdfGenerated
+              ? Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                  child: Column(
+                    children: [
+                      topTextBlock(
+                        title: translation(context).osagoDetailPageTopTitle,
+                        text: translation(context).osagoDetailPageTopText,
                       ),
-                    ),
-                    const SizedBox(width: 10),
-                    IconButton(
-
-                        onPressed: () => _qrCodeButtonPressed(),
-                        icon: Icon(Icons.qr_code),
-                        color: Theme.of(context).colorScheme.primary)
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ) : Center(
-          child: CircularProgressIndicator(),
-        )
-      ),
+                      const SizedBox(height: 24),
+                      Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: Theme.of(context).colorScheme.inversePrimary,
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            InfoTile(
+                              title: translation(context)
+                                  .osagoDetailPageIngoTileCarPlate,
+                              content: widget.osago.carPlate,
+                            ),
+                            InfoTile(
+                              title: translation(context)
+                                  .osagoDetailPageIngoTileDates,
+                              content:
+                                  '${_dateTimeParser(widget.osago.startDate.toString())} - ${_dateTimeParser(widget.osago.endDate.toString())}',
+                            ),
+                            InfoTile(
+                              title: translation(context)
+                                  .osagoDetailPageIngoTileCost,
+                              content: '${widget.osago.costOfOsago}сом',
+                            ),
+                            InfoTile(
+                              title: translation(context)
+                                  .osagoDetailPageIngoTileStatus,
+                              content: widget.osago.status
+                                  ? translation(context)
+                                      .osagoDetailPageIngoTileStatusActive
+                                  : translation(context)
+                                      .osagoDetailPageIngoTileStatusInactive,
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Spacer(),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 40.0),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: MyButton(
+                                text: translation(context).buttonCreatePdf,
+                                onPress: isPdfGenerated
+                                    ? () {
+                                        _openPdf();
+                                      }
+                                    : null,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            Container(
+                              padding: EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .inversePrimary,
+                                borderRadius: BorderRadius.circular(12),
+                                border: Border.all(
+                                  color:
+                                      Theme.of(context).colorScheme.onSecondary,
+                                  width: 1,
+                                ),
+                              ),
+                              child: IconButton(
+                                onPressed: () => _qrCodeButtonPressed(),
+                                icon: Icon(Icons.qr_code),
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              : Center(
+                  child: CircularProgressIndicator(),
+                )),
     );
   }
 }
